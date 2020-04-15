@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>قَعُودٌ في عِيَادَةِ الأَسْنَانِ </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,shrink-to-fit=no, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/story.css?v=1.1" />
+
+<script src="js/modernizr.custom.js"></script>
+<script src="js/jquerypp.custom.js"></script>
+<script src="js/jquery.bookblock.js"></script>
+
+
+</head>
+
+<body>
+        <audio controls id="flipAudioFile" preload="auto" src="audio/flip.mp3" style="display: none">
+        </audio>
+        <audio controls id="audiofile" style="display: none">
+            <source src="audio/story-01_vo.mp3"  type="audio/mp3">
+        </audio>
+        <div class="play_btn_div">
+            <img class="img-fluid play_btn" onclick="startStory();" src="play_btn.gif">
+        </div>
+        <div class="row loading_div" style="display: none;">
+            <a href="javascript:void(0)" class="text-center" style="width: 100%;">
+                <img class="img-fluid" src="loading.gif">
+            </a>
+        </div>
+        <div class="container-fluid p-0">
+
+
+        
+        <div class="bb-custom-wrapper" style="display: none;">
+            <div id="bb-bookblock" class="bb-bookblock">
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-cover.jpg" class="img-fluid"  alt="cover"/>
+                    </div>
+                </div> 
+
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide01.jpg" class=" img-fluid" alt="image01"/>
+                    </div>
+                </div>
+
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide02.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide03.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide04.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide05.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide06.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>				
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide07.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide08.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide09.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide10.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide11.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide12.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide13.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide14.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-custom-side">
+                        <img src="images/demo1-slide15.jpg" class="img-fluid" alt="image01"/>
+                    </div>
+                </div>
+                
+                    <h1 class="line centered" id="subtitles" style="direction: rtl;"></h1>
+            </div>
+
+        <nav class="bb-custom-wrapper mt-0">
+            <a id="bb-nav-next"  href="#" class="bb-custom-icon"><img src="back.png" width="50" style="margin-top: -28px;"></a>
+
+
+            <span id="playpause" style="cursor: pointer;">
+                <img src="stop-button.png" width="50" style="margin-top: -28px"/>
+            </span>
+
+            <span style="cursor: pointer;" id="replay">
+                <img src="repeat.png" width="50" style="margin-top: -28px"/>
+            </span>
+            <a  id="bb-nav-prev" href="#" class="bb-custom-icon"><img src="next.png" width="50" style="margin-top: -28px;"></a>
+
+
+        </nav>
+        </div>
+    </div>
+<input type="hidden" name="latest_slide" id="latest_slide" value="0" />
+
+    <style>
+        
+    </style>
+
+    <script>
+        
+
+       
+        var start_data = [{"start_time":0.00,"end_time":1.80,"class":"page0"},{"start_time":2.0 ,"end_time":6.30,"class":"page1"},{"start_time":6.60,"end_time":10.90,"class":"page2"},{"start_time":11.03,"end_time":16.11,"class":"page3"},{"start_time":16.35,"end_time":27.03,"class":"page4"},{"start_time":27.04,"end_time":32.45,"class":"page5"},{"start_time":32.55,"end_time":37.70,"class":"page6"},{"start_time":37.90,"end_time":47.20,"class":"page7"},{"start_time":47.65,"end_time":56.20,"class":"page8"},{"start_time":56.60,"end_time":64.0,"class":"page9"},{"start_time":64.20,"end_time":79.30,"class":"page10"},{"start_time":79.40,"end_time":83.60,"class":"page11"},{"start_time":84.0,"end_time":88.15,"class":"page12"},{"start_time":88.40,"end_time":97.40,"class":"page13"},{"start_time":97.66,"end_time":121.70,"class":"page14"},{"start_time":122.09,"end_time":129.10,"class":"page15"}];
+        var audioPlayer = document.getElementById("audiofile");
+        var flipAudioFile = document.getElementById("flipAudioFile");
+
+        function play() {
+            audioPlayer.play();
+            audioPlayer.currentTime = 0;
+            setInterval(function(){
+                var audioPlayer = document.getElementById("audiofile");
+                if(audioPlayer.currentTime >= 0 && audioPlayer.readyState==4){
+                    $(".loading_div").hide();
+                    $(".bb-custom-wrapper").show();
+
+                }
+
+            }, 500);
+
+        }
+        function startStory() {
+            $(".play_btn_div").hide();
+            $(".loading_div").show();
+            play();
+
+        }
+
+        ( function(win, doc) {
+
+            var audioPlayer = doc.getElementById("audiofile");
+            var subtitles = doc.getElementById("subtitles");
+            $("#playpause").on("click",function(){
+                if (!$("#audiofile")[0].paused){
+
+                    $("#audiofile")[0].pause();
+                    $("#playpause > img").attr("src","play-button.png");
+                }else{
+
+                    $("#audiofile")[0].play();
+                    $("#playpause > img").attr("src","stop-button.png");
+                }
+            })
+
+            $(".bb-custom-icon").on("click",function () {
+                $("#flipAudioFile")[0].play();
+            });
+            $(".bb-custom-icon").on("click",function () {
+                $("#flipAudioFile")[0].play();
+            });
+
+            var syncData = {
+                0:[
+                {"end": " 00.11 ", "start": "0.000", "text": " قَعُودٌ "},
+{"end": "00.60", "start": " 00.12", "text": " في "},
+{"end": " 01.06 ", "start": " 00.61", "text": " عِيَادَةِ "},
+{"end": " 01.87", "start": " 01.07", "text": " الأَسْنَانِ "},
+
+
+
+
+                ], 
+                1 : [/*01*/
+                {"end": " 02.55", "start": " 02.00", "text": " تَلْعَبُ "},
+{"end": " 03.02 ", "start": " 02.56", "text": " الجِمَالُ "},
+{"end": " 03.59", "start": "03.03 ", "text": " الصَّغِيرَةُ "},
+{"end": " 04.04", "start": " 03.60", "text": " مَعًا.<br>  "},
+{"end": " 04.65", "start": " 04.05", "text": " تَدُورُ "},
+{"end": " 04.97", "start": " 04.66", "text": " بين "},
+{"end": " 05.55", "start": " 04.98", "text": " أَرْجُلِ "},
+{"end": " 05.97", "start": " 05.56", "text": " الجِمَالِ "},
+{"end": " 06.47", "start": " 05.98", "text": " الكَبِيرَةِ."},
+
+
+                   
+
+                
+                ],
+                2 : [/*2*/
+               
+{"end": " 07.09", "start": " 06.18", "text": " لا يَلْعَبُ "},
+{"end": " 07.62", "start": " 07.10", "text": " قَعُودٌ "},
+{"end": " 07.90", "start": "07.63", "text": " مع  "},
+{"end": " 08.42", "start": "07.91", "text": "بَقِيَّةِ "},
+{"end": " 09.00", "start": " 08.43", "text": " الجِمَالِ، "},
+{"end": " 09.62", "start": " 09.05 ", "text": " يَجْلِسُ <br>"},
+{"end": " 10.07", "start": " 09.63", "text": " بَعِيدًا "},
+{"end": " 11.02", "start": " 10.08", "text": " وَحِيدًا."},
+
+
+
+                    	
+                ],
+                3 : [/*3*/
+               
+                {"end": " 11.54", "start": " 11.03", "text": " تَأْتِي "},
+{"end": " 11.98", "start": " 11.55", "text": " أُمُّهُ "},
+{"end": " 12.47", "start": " 11.99", "text": " إليهِ: "},
+{"end": " 13.10", "start": " 12.48", "text": " مَا بَالُكَ "},
+{"end": " 14.06", "start": " 13.11", "text": " يا قَعُودُ؟ <br> "},
+{"end": " 14.59", "start": " 14.07", "text": " لِمَ لا "},
+{"end": " 15.12", "start": " 14.60", "text": "  تَلعَبُ مع "},
+{"end": " 16.11", "start": " 15.13", "text": " أَصْدِقَائكَ؟"},
+
+
+                                   
+                    
+                ],
+                4 : [/*4*/
+{"end": " 16.38", "start": " 15.90", "text": "يَنْظُر"},
+{"end": " 17.10", "start": " 16.39", "text": " قَعُودٌ "},
+{"end": " 18.08", "start": " 17.11", "text": " إلى أُمِّهِ، "},
+{"end": " 19.10", "start": " 18.10", "text": " يُفَكِّرُ:  "},
+{"end": " 20.08", "start": " 19.12", "text": " هَلْ<br> يُخْبِرُها "},
+{"end": " 20.54", "start": " 20.09", "text": " بِأَلَمِ "},
+{"end": " 21.19", "start": " 20.55", "text": " سِنِّهِ؟<br>"},
+{"end": " 22.18", "start": " 21.23", "text": " ولكِنَّهَا "},
+{"end": " 23.14", "start": " 22.19", "text": " قَدْ تَأْخُذُهُ "},
+{"end": " 24.02", "start": " 23.15", "text": " إلى طَبِيبِ "},
+{"end": " 24.66", "start": " 24.03", "text": " الأَسْنَانِ؛<br> "},
+{"end": " 25.10", "start": " 24.68", "text": " وهو "},
+{"end": " 25.63", "start": " 25.11", "text": " يَخَافُ "},
+{"end": " 26.12", "start": " 25.64", "text": " مِنْ طَبِيبِ "},
+{"end": " 27.03", "start": " 26.13", "text": " الأَسْنَانِ. "},
+
+
+
+
+	
+                   
+                ],
+                5 : [/*5*/
+
+{"end": " 27.50", "start": " 27.04", "text": " تَقْتَرِبُ "},
+{"end": " 28.07", "start": " 27.51", "text": " أُمُّهُ "},
+{"end": " 28.50", "start": " 28.08", "text": " منهُ، "},
+{"end": " 30.01", "start": " 28.51", "text": " وتُقَبِّلُهُ، "},
+{"end": " 30.59", "start": " 30.02", "text": " ثم تَحضُنُهُ <br>"},
+{"end": " 31.45", "start": " 31.00", "text": " بين  "},
+{"end": " 31.95", "start": " 31.46", "text": "  رِجْلَيهَا "},
+{"end": " 32.20", "start": " 31.96", "text": " الطَوِيلَتَينِ."},
+
+
+                   ],
+                6 : [/*6*/
+
+    {"end": " 33.10", "start": " 32.21", "text": "يَشْعُر"},
+{"end": " 33.66", "start": " 33.11", "text": " قَعُودٌ "},
+{"end": " 34.18", "start": " 33.67", "text": " بِالرَّاحَةِ.<br>"},
+{"end": " 35.04", "start": " 34.19", "text": " يَقُولُ "},
+{"end": " 35.68", "start": " 35.05", "text": " قَعُودٌ "},
+{"end": " 36.15", "start": " 35.69", "text": " لأُمِّهِ: "},
+{"end": " 37.02", "start": " 36.16", "text": " سِنِّي "},
+{"end": " 37.57", "start": " 37.03", "text": " يُؤلِمُنِي. "},
+
+						
+                   			
+                ],
+                7 : [/*7*/
+
+{"end": " 38.11", "start": " 37.28", "text": "تَنْظُر"},
+{"end": " 38.66", "start": " 38.12", "text": " أُمُّهُ "},
+{"end": " 39.11", "start": " 38.67", "text": " دَاخِلَ "},
+{"end": " 40.03", "start": " 39.12", "text": " فَمِهِ؛ "},
+{"end": " 40.67", "start": " 40.05", "text": " تَقُولُ: "},
+{"end": " 41.15", "start": " 40.68", "text": " لِنَذْهَبْ "},
+{"end": " 42.54", "start": "41.16", "text": " إلى  "},
+{"end": " 42.04", "start": "41.56", "text": "  طَبيبِ "},
+{"end": " 42.67", "start": " 42.05", "text": " الأَسنَانِ؛ "},
+{"end": " 43.09", "start": " 42.68", "text": " فَهوَ "},
+{"end": " 43.57", "start": " 43.10", "text": " مَاهِرٌ  "},
+{"end": " 43.90", "start": " 43.58", "text": "  في "},
+{"end": " 44.22", "start": " 43.91", "text": " عِلَاجِ <br> "},
+{"end": " 44.66", "start": " 44.23", "text": " الأَلَمِ. "},
+{"end": " 45.19", "start": " 44.67", "text": " اطْمَئِنَّ "},
+{"end": " 46.12", "start": " 45.20", "text": " يا قَعُودُ، "},
+{"end": " 47.00", "start": " 46.13", "text": " سَأَكُونُ "},
+{"end": " 47.50", "start": " 47.01", "text": " مَعَكَ."},
+
+
+
+
+                ],
+                8 : [/*8*/
+
+{"end": " 47.81", "start": " 47.51", "text": " في  "},
+{"end": " 48.51", "start": " 47.82", "text": "  عِيَادَةِ "},
+{"end": "49.04", "start": " 48.52", "text": " الأَسْنَانِ "},
+{"end": "49.50", "start": " 49.05", "text": " يَجْلِسُ "},
+{"end": " 49.95", "start": " 49.51", "text": " قَعُودٌ  "},
+{"end": " 50.30", "start": " 49.96", "text": "  على "},
+{"end": " 51.00", "start": " 50.31", "text": " الكُرْسِي.<br>"},
+{"end": " 51.61", "start": " 51.01", "text": " الكُرْسِي "},
+{"end": " 52.09", "start": " 51.62", "text": " يَرْتَفِعُ "},
+{"end": " 53.06", "start": " 52.10", "text": " ويَنْزِلُ؛ "},
+{"end": "53.62", "start": " 53.07", "text": " يَقُولُ "},
+{"end": "54.14", "start": "53.63", "text": " قَعُودٌ: "},
+{"end": "54.66", "start": "54.15", "text": " ليتَ <br> "},
+{"end": "55.08", "start": "54.67", "text": " عِندِي "},
+{"end": "55.63", "start": "55.09", "text": " مِثْلَهُ "},
+{"end": "56.20", "start": "55.64", "text": " بِالبَيتِ."},
+
+
+
+                   				
+                ],
+                9 : [/*9*/
+
+{"end": "57.08", "start": "56.21", "text": " يُسلِّمُ "},
+{"end": "57.62", "start": "57.09", "text": " الطبيبُ:"},
+{"end": "58.00", "start": "57.63", "text": " على  "},
+{"end": "58.51", "start": "58.01", "text": "  قَعُودٍ، "},
+{"end": "58.96", "start": "58.52", "text": " ثم  "},
+{"end": "59.56", "start": "58.97", "text": "  يَلبَسُ "},
+{"end": "60.10", "start": "59.57", "text": " كمَّامَةً "},
+{"end": "61.17", "start": "60.11", "text": " وقُفَّازَينِ.<br>"},
+{"end": "62.04", "start": "61.18", "text": " يَفْحَصُ "},
+{"end": "62.62", "start": "62.05", "text": " أَسْنَانَ "},
+{"end": "63.05", "start": "62.63", "text": " قَعُودٍ "},
+{"end": "63.62", "start": "63.06", "text": " بمِرْآةٍ "},
+{"end": "64.10", "start": "63.63", "text": " صَغِيرَةٍ."},
+               
+                ],
+                10:[
+
+{"end": "64.65", "start": "64.11", "text": " يقولُ "},
+{"end": "65.19", "start": "64.66", "text": " الطبيبُ: "},
+{"end": "66.12", "start": "65.20", "text": " هممم.. "},
+
+{"end": "67.08", "start": "66.14", "text": " أسنانُكَ "},
+
+{"end": "67.64", "start": "67.09", "text": " نَظِيفَةٌ<br> "},
+{"end": "68.18", "start": "67.65", "text": " ولامِعَةٌ "},
+{"end": "69.13", "start": "68.19", "text": " يا قَعُودُ.<br> "},
+{"end": "69.64", "start": "69.15", "text": " أنتَ "},
+{"end": "69.79", "start": "69.25", "text": " تَهْتَمُ  "},
+{"end": "70.29", "start": "69.80", "text": " بها   "},
+{"end": "71.14", "start": "70.30", "text": " جيِّدًا.<br>"},
+{"end": "72.00", "start": "71.15", "text": " لديكَ "},
+{"end": "72.65", "start": "72.01", "text": " سِنٌّ "},
+{"end": "73.04", "start": "72.66", "text": " لَبَنِيٌّ "},
+{"end": "73.64", "start": "73.05", "text": " يَهْتَزُ؛ "},
+
+{"end": "74.16", "start": "73.65", "text": "وسبَّبَ "},
+
+{"end": "74.67", "start": "74.17", "text": " لكَ  "},
+{"end": "75.17", "start": "74.68", "text": "  الأَلَمَ.<br> "},
+{"end": "76.21", "start": "75.21", "text": " سأَخْلَعُهُ "},
+{"end": "76.65", "start": "76.22", "text": " حتى  "},
+{"end": "77.20", "start": "76.67", "text": "  يَنمُوَ "},
+{"end": "78.15", "start": "77.21", "text": " لكَ سِنٌّ "},
+{"end": "79.03", "start": "78.16", "text": " دَائِمٌ: "},
+{"end": "79.40", "start": "79.04", "text": " مَكَانَهُ."},
+
+
+
+
+                ], 
+                11:[
+
+{"end": "80.02", "start": "79.21", "text": " اُنْظُرْ "},
+{"end": "80.75", "start": "80.03", "text": " إلى سِنِّكَ "},
+{"end": "81.20", "start": "80.76", "text": " يا قَعودُ! "},
+{"end": "82.16", "start": "81.21", "text": " هل تَشعرُ "},
+
+{"end": "83.10", "start": "82.17", "text": " الآن أنَّكَ "},
+
+{"end": "83.79", "start": "83.11", "text": " أفضلُ؟"},
+
+
+                ], 
+                12:[
+
+{"end": "84.56", "start": "84.00", "text": " نَعم!  "},
+{"end": "85.13", "start": "84.58", "text": "أشعر "},
+{"end": "85.66", "start": "85.14", "text": " أنِّي "},
+{"end": "86.22", "start": "85.67", "text": " أفضلُ، "},
+{"end": "87.08", "start": "86.23", "text": " أجابَ "},
+{"end": "87.63", "start": "87.09", "text": " قَعودٌ "},
+{"end": "88.17", "start": "87.64", "text": " بابتسامَةٍ."},
+
+
+
+
+
+                ], 
+                13:[
+{"end": "89.13", "start": "88.18", "text": " استَمِرَّ في "},
+{"end": "90.02", "start": "89.14", "text": " المُحَافَظَةِ "},
+
+
+{"end": "90.65", "start": "90.03", "text": " على نَظَافَةِ "},
+{"end": "91.13", "start": "90.66", "text": " أسنَانِكَ "},
+
+{"end": "92.07", "start": "91.14", "text": " يا قعودُ؛  "},
+{"end": "92.79", "start": "92.08", "text": " بِفَرْشِهَا "},
+{"end": "93.21", "start": "92.80", "text": " مرتينِ "},
+
+{"end": "94.18", "start": "93.22", "text": " يوميًا،  "},
+{"end": "95.22", "start": "94.19", "text": " وتَذَكَّرْ<br> "},
+{"end": "96.16", "start": "95.24", "text": " استخدامَ "},
+{"end": "97.01", "start": "96.17", "text": " الخَيطِ "},
+{"end": "97.58", "start": "97.02", "text": " كُلَّ لَيلَةٍ. "},
+
+
+
+                ],
+                14:[
+
+{"end": "98.13", "start": "97.29", "text": " يقولُ "},
+{"end": "99.05", "start": "98.14", "text": " الطبيبُ: "},
+
+{"end": "99.68", "start": "99.06", "text": " هيا "},
+
+{"end": "100.12", "start": "99.69", "text": " يا قعودُ، "},
+{"end": "100.66", "start": "100.13", "text": " أَرِنِي "},
+{"end": "101.08", "start": "100.67", "text": " كيفَ "},
+
+{"end": "101.62", "start": "101.09", "text": " تُنَظِفُ "},
+{"end": "102.15", "start": "101.64", "text": " أَسْنَانَكَ!"},
+{"end": "102.79", "start": "102.16", "text": " يُمْسِكُ "},
+{"end": "103.36", "start": "102.80", "text": " قعودٌ <br> "},
+{"end": "104.03", "start": "103.37", "text": " الفُرْشَاةَ "},
+{"end": "105.02", "start": "104.04", "text": " ويُحَرِكُها "},
+{"end": "105.65", "start": "105.03", "text": " على مُجَسَّمِ "},
+
+{"end": "106.24", "start": "105.66", "text": " الأسنانِ؛  "},
+
+{"end": "107.09", "start": "106.25", "text": " فوقَ "},
+{"end": "107.64", "start": "107.10", "text": " الأَسْنَانِ "},
+{"end": "108.25", "start": "107.65", "text": " وتحتَها،<br>  "},
+
+{"end": "109.14", "start": "108.27", "text": " يمينًا "},
+{"end": "110.13", "start": "109.15", "text": " ويسارًا، "},
+{"end": "110.78", "start": "110.14", "text": " بشكلٍ "},
+{"end": "111.21", "start": "110.79", "text": " دائريٍ "},
+{"end": "112.74", "start": "111.22", "text": " مِنَ الأَمَامِ "},
+{"end": "113.21", "start": "112.75", "text": " والخَلْفِ، "},
+
+{"end": "114.04", "start": "113.22", "text": " بالداخلِ "},
+
+{"end": "115.15", "start": "114.05", "text": " وبالخارجِ.<br>"},
+{"end": "116.04", "start": "115.17", "text": " يقولُ "},
+{"end": "116.64", "start": "116.06", "text": " الطبيبُ: "},
+
+{"end": "117.20", "start": "116.66", "text": " أحسنتَ "},
+{"end": "118.17", "start": "117.21", "text": " يا قعودُ، "},
+{"end": "120.04", "start": "118.18", "text": " نعم هكذا "},
+{"end": "120.64", "start": "120.05", "text": " بِرِفْقٍ "},
+{"end": "121.13", "start": "120.65", "text": " وليسَ "},
+{"end": "122.08", "start": "121.14", "text": " بِقُوَّةٍ."},
+
+
+
+                ] ,
+                15:[
+
+                {"end": "122.66", "start": "122.09", "text": " يُقدِّمُ "},
+
+{"end": "123.13", "start": "122.67", "text": " طبيبُ "},
+
+{"end": "123.77", "start": "123.14", "text": " الأسنانِ "},
+{"end": "124.14", "start": "123.77", "text": " لقَعودٍ "},
+{"end": "125.04", "start": "124.15", "text": " بالونةً "},
+{"end": "125.66", "start": "125.05", "text": " حمراءَ، "},
+
+{"end": "127.03", "start": "125.67", "text": " ويطلُبُ منهُ <br>"},
+{"end": "127.66", "start": "127.04", "text": " زيارتَهُ "},
+{"end": "128.22", "start": "127.67", "text": " بعدَ ستةِ "},
+{"end": "129.09", "start": "128.23", "text": " أشهرٍ. "},
+
+
+
+                ]  			
+            };
+
+            createSubtitle(0,audioPlayer,start_data[0].start_time,start_data[0].end_time);
+            $("#replay").on("click",function(){
+                var page_id = $("#latest_slide").val();
+                createSubtitle(page_id,audioPlayer,start_data[page_id].start_time,start_data[page_id].end_time,true);
+            });
+
+
+            function createSubtitle(id,audioPlayer,start_time,end_time,play=false)
+            {
+                $("#subtitles").removeClass();
+                $("#subtitles").addClass("line centered page"+id)
+                audioPlayer.pause();
+                subtitles.innerText = '';
+                audioPlayer.currentTime = start_time;
+                if(id>0 || play===true){
+                    let play_time = setTimeout(function() {
+                        audioPlayer.play();
+                        $("#playpause > img").attr("src","stop-button.png");
+                    },500);
+                }
+
+                var element;
+                for (var i = 0; i < syncData[id].length; i++) {
+                    element = doc.createElement('span');
+                    element.setAttribute("id", "c_" +id+ i);
+                    element.innerHTML = syncData[id][i].text + " ";
+                    subtitles.appendChild(element);
+                }
+
+                audioPlayer.ontimeupdate = (event) => {
+                    syncData[id].forEach(function(element, index, array){
+
+                        var page_id = $("#latest_slide").val();
+
+                        if( page_id == 15 )
+                        document.getElementById("bb-nav-next").style.display = "none";
+                        
+                    
+                        if( page_id == 0 )
+                        document.getElementById("bb-nav-prev").style.display = "none";
+
+                        
+                        
+                        subtitles.children[index].style.color = '#4e82bc';
+                       
+                        
+                        if( audioPlayer.currentTime >= element.start && audioPlayer.currentTime <= element.end )
+                            subtitles.children[index].style.color = '#b50808';
+
+                    });
+
+                    if(audioPlayer.currentTime>=end_time){
+                        audioPlayer.pause();
+                        syncData[id].forEach(function(element, index, array){
+
+                           
+                            
+                            subtitles.children[index].style.color = '#4e82bc';
+                        });
+                        $("#playpause > img").attr("src","icons/play-button.png");
+                    }
+                };
+            }
+            var Page = (function() {
+                var config = {
+                        $bookBlock : $( '#bb-bookblock' ),
+                        $navNext : $( '#bb-nav-next' ),
+                        $navPrev : $( '#bb-nav-prev' ),
+                        $navFirst : $( '#bb-nav-first' ),
+                        $navLast : $( '#bb-nav-last' )
+                    },
+                    init = function() {
+                        config.$bookBlock.bookblock( {
+                            speed : 900,
+                            direction: 'rtl',
+                            shadowSides : 0.8,
+                            shadowFlip : 0.7,
+                            onEndFlip :function( old, page, isLimit ) {
+                                $(window).scrollTop(5);
+                                $("#latest_slide").val(page)
+                                if(page==0){
+                                    $('.bb-custom-icon-arrow-right').show();
+                                    //$('#bb-nav-prev').hide();
+                                }
+
+                                if(page == 1){
+                                   // $('#bb-nav-next').hide();
+                                    $('#bb-nav-prev').show();
+                                }
+                                else
+                                    $('#bb-nav-next').show();
+
+                                //audioPlayer.currentTime = start_data[page].start_time;
+                                createSubtitle(page,audioPlayer,start_data[page].start_time,start_data[page].end_time,true);
+                            }
+                        } );
+                        initEvents();
+                    },
+                    initEvents = function() {
+
+                        var $slides = config.$bookBlock.children();
+
+                        // add navigation events
+                        config.$navNext.on( 'click touchstart', function() {
+                            config.$bookBlock.bookblock( 'next' );
+                            return true;
+                        } );
+
+                        config.$navPrev.on( 'click touchstart', function() {
+                            config.$bookBlock.bookblock( 'prev' );
+                            return true;
+                        } );
+
+                        config.$navFirst.on( 'click touchstart', function() {
+                            config.$bookBlock.bookblock( 'first' );
+                            return false;
+                        } );
+
+                        config.$navLast.on( 'click touchstart', function() {
+                            config.$bookBlock.bookblock( 'last' );
+                            return false;
+                        } );
+
+                        // add swipe events
+                        $slides.on( {
+                            'swipeleft' : function( event ) {
+                                config.$bookBlock.bookblock( 'prev' );
+                                return false;
+                            },
+                            'swiperight' : function( event ) {
+                                config.$bookBlock.bookblock( 'next' );
+                                return false;
+                            }
+                        } );
+
+                        // add keyboard events
+                        $( document ).keydown( function(e) {
+                            var keyCode = e.keyCode || e.which,
+                                arrow = {
+                                    left : 37,
+                                    up : 38,
+                                    right : 39,
+                                    down : 40
+                                };
+
+                            switch (keyCode) {
+                                case arrow.left:
+                                    config.$bookBlock.bookblock( 'next' );
+                                    break;
+                                case arrow.right:
+                                    config.$bookBlock.bookblock( 'prev' );
+                                    break;
+                            }
+                        } );
+                    };
+
+                return { init : init };
+
+            })();
+            Page.init();
+        }(window, document));
+    </script>
+    <script>
+        $("#bb-nav-next ").on('click', function() {
+       var $height = $('.bb-custom-side').height();
+        $('.bb-bookblock').css('height', $height);
+        });
+
+    </script>
+
+</body>
+</html>
